@@ -5,23 +5,28 @@ const app = express();
 app.get('/:url*', async (req, res) => {
     try {
         const videoUrl = decodeURIComponent(req.params.url + req.params[0]);
-        const thumbnailUrl = `https://x266.mov/images/thumb.jpg`; 
+        const thumbnailUrl = 'https://x266.mov/images/thumb.jpg';
 
         // HTML content with the metadata for Discord embedding
         const htmlContent = `
             <!DOCTYPE html>
-            <html>
-            <head>
-                <meta property="og:image" content="${thumbnailUrl}">
-                <meta property="og:type" content="video.other">
-                <meta property="og:video:url" content="${videoUrl}">
-                <meta property="og:video:width" content="1920">
-                <meta property="og:video:height" content="1080">
-            </head>
-            <body>
-                <h1>Video Embed</h1>
-            </body>
-            </html>
+            <html data-lt-installed=true class="gkziwdpsu idc0_350">
+            <meta charset=utf-8>
+            <meta name=viewport content="width=device-width, initial-scale=1">
+            <title>discord embed endpoint</title>
+            <meta name=twitter:card content=player>
+            <meta name=twitter:site content=@SimuIping>
+            <meta name=twitter:creator content=@SimuIping>
+            <meta name=twitter:image content=${thumbnailUrl}>
+            <meta name=twitter:player:stream content=${videoUrl}>
+            <meta name=twitter:player content=${videoUrl}>
+            <meta property=og:image content=${thumbnailUrl}>
+            <meta property=og:type content=video.other>
+            <meta property=og:video:url content=${videoUrl}>
+            <meta property=og:video:width content=1920>
+            <meta property=og:video:height content=1080>
+            <body class=vsc-initialized>
+            <h1>You have reached the embedding page for uncannily large and high definition Discord videos</h1>
         `;
 
         // Set response headers
