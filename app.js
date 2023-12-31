@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 
 // Define a route that processes the incoming URL
-app.get('/:url', async (req, res) => {
+app.get('/:url*', async (req, res) => {
     try {
-        const videoUrl = decodeURIComponent(req.params.url);
+        const videoUrl = decodeURIComponent(req.params.url + req.params[0]);
         const thumbnailUrl = `https://x266.mov/images/thumb.jpg`; 
-        
+
         // HTML content with the metadata for Discord embedding
         const htmlContent = `
             <!DOCTYPE html>
